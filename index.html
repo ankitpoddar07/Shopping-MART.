@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MART</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3081/3081559.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header>
+        <div class="nav container">
+            <div class="nav-left">
+                <a href="index.html" class="logo">MART</a>
+                <nav class="navbar">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="offer.html">Offers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="nav-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Search products...">
+                    <i class='bx bx-search'></i>
+                </div>
+                <div class="user-actions">
+                    <i class='bx bx-user'></i>
+                    <i class='bx bx-heart'></i>
+                        <div class="cart-icon-container">
+                        <i class='bx bxs-cart' id="cart-icon"></i>
+                        <span class="cart-quantity">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hamburger">
+                <i class='bx bx-menu'></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content container">
+            <h1 class="animate__animated animate__fadeInDown">Summer Collection 2023</h1>
+            <p class="animate__animated animate__fadeInUp">Up to 50% off on selected items</p>
+            <button class="btn hero-btn animate__animated animate__fadeInUp">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories container">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="categories-container">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9" alt="Clothing">
+                <div class="category-overlay">
+                    <h3>Clothing</h3>
+                    <a href="clothe.html">
+                    <button class="btn category-btn">View All</button>
+                    </a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Electronics">
+                <div class="category-overlay">
+                    <h3>Electronics</h3>
+                    <a href="elctronic.html">
+                    <button class="btn category-btn">View All</button>
+                    </a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f" alt="Accessories">
+                <div class="category-overlay">
+                    <h3>Accessories</h3>
+                    <a href="accessories.html">
+                    <button class="btn category-btn">View All</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="shop container">
+        <div class="section-header">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="sort-filter">
+                <select id="sort-by">
+                    <option value="default">Sort by</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name">Name</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="shop-content">
+            <!-- Product 1 -->
+            <div class="product-box">
+                <span class="product-badge">New</span>
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="Adidas T-Shirt" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Adidas T-Shirt</h2>
+                    <span class="product-price">$30.00</span>
+                    <button class="add-cart" data-id="1">
+                        <i class='bx bx-cart'></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-box">
+                <span class="product-badge">Sale</span>
+                <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df" alt="Wireless Earbuds" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Wireless Earbuds</h2>
+                    <span class="product-price">$199.00</span>
+                    <button class="add-cart" data-id="2">
+                        <i class='bx bx-cart'></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-box">
+                <span class="product-badge">Popular</span>
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5" alt="Redtape Jacket" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Redtape Jacket</h2>
+                    <span class="product-price">$99.00</span>
+                    <button class="add-cart" data-id="3">
+                        <i class='bx bx-cart'></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-box">
+                <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8" alt="Water Bottle" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Stainless Water Bottle</h2>
+                    <span class="product-price">$19.00</span>
+                    <button class="add-cart" data-id="4">
+                        <i class='bx bx-cart'></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-box">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083" alt="Sunglasses" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Silver Sunglasses</h2>
+                    <span class="product-price">$7.00</span>
+                    <button class="add-cart" data-id="5">
+                        <i class='bx bx-cart'></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-box">
+                <span class="product-badge">New</span>
+                <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee" alt="Adidas Cap" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Adidas Cap</h2>
+                    <span class="product-price">$45.00</span>
+                    <button class="add-cart" data-id="6">
+                        <i class='bx bx-cart'></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-box">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62" alt="Backpack" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Leather Backpack</h2>
+                    <span class="product-price">$50.00</span>
+                    <button class="add-cart" data-id="7">
+                        <i class='bx bx-cart'></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product 8 -->
+            <div class="product-box">
+                <span class="product-badge">Hot</span>
+                <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2" alt="Running Shoes" class="product-img">
+                <div class="product-info">
+                    <h2 class="product-title">Nike Running Shoes</h2>
+                    <span class="product-price">$399.00</span>
+                    <button class="add-cart" data-id="8">
+                        <i class='bx bx-cart'></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get updates on special offers and new products</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Cart -->
+    <div class="cart-overlay"></div>
+    <div class="cart">
+        <div class="cart-header">
+            <h2 class="cart-title">Your Shopping Cart</h2>
+            <i class='bx bx-x' id="close-cart"></i>
+        </div>
+        
+        <div class="cart-content">
+            <!-- Cart items will be inserted here -->
+        </div>
+        
+        <div class="cart-footer">
+            <div class="total">
+                <div class="total-title">Total</div>
+                <div class="total-price">$0.00</div>
+            </div>
+            <button type="button" class="btn btn-buy">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-col">
+                <h3>MART</h3>
+                <p>Your one-stop shop for all your needs</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-pinterest'></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">Featured</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Sale Items</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 MART. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Link to JS file -->
+    <script src="/js/main.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  
+    <script src="https://js.stripe.com/v3/"></script>
+</body>
+</html>

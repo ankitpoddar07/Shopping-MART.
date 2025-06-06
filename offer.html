@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Offers</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/992/992703.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+    body { background: #f5f5f5; }
+
+    header {
+      background:rgba(125, 67, 130, 0.28);
+      padding: 1rem;
+      text-align: center;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #333;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .home-btn {
+    font-size: 1rem;
+    background: #007aff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+    }
+
+    .home-btn:hover {
+    background: #0056d2;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 10px;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .slider img {
+      width: 300px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .offers-section {
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .offers-title {
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+      padding: 0 0.5rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: #fff;
+      padding: 0.8rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 0.8rem;
+    }
+
+    .product-name {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .product-price {
+      color: green;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .discount-tag {
+      background: red;
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 20px;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
+
+    .btn {
+      margin-top: 0.5rem;
+      padding: 8px 15px;
+      background: #007aff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0056d2;
+    }
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      gap: 10px;
+      padding: 1rem;
+      background: #fff;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
+    .slider img, 
+    .slider video,
+    .slider iframe {
+      scroll-snap-align: start;
+      width: 90vw;
+      max-width: 300px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex: 0 0 auto;
+    }
+    .slider iframe {
+      border: none;
+    }
+
+    /* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .video-container {
+    aspect-ratio: 4/3; /* Adjust aspect ratio for tablets */
+  }
+  
+  .slider-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-container {
+    aspect-ratio: 1/1; /* Square ratio for mobile */
+  }
+  
+  .slider-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+  
+  .slider-dots {
+    bottom: 10px;
+  }
+  
+  .slider-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Special cases for landscape orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  .video-container {
+    aspect-ratio: 21/9; /* Wider aspect ratio for landscape */
+  }
+}
+  </style>
+</head>
+<body>
+
+  <header>🔥 Today's Mega Deals on MART 🔥<a href="index.html" class="home-btn">Home</a></header>
+
+    <!-- Video Slider -->
+  <div class="slider">
+    <video controls width="300" height="150">
+    <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4">
+    </video>
+    <iframe 
+    width="300" 
+    height="150" 
+    src="https://player.vimeo.com/video/32001208?autoplay=1&muted=1&loop=1&title=0&byline=0" 
+    frameborder="0" 
+    allow="autoplay; fullscreen" 
+    allowfullscreen
+    style="border-radius: 8px;">
+    </iframe>
+    <video width="300" height="150" autoplay muted loop playsinline poster="/img/phone.jpg">
+    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm" />
+    </video>
+    <iframe 
+        width="300" 
+        height="150" 
+        src="https://www.youtube.com/embed/5Peo-ivmupE?autoplay=0&mute=0&controls=1" 
+        title="Kitchen Appliances Demo"
+        frameborder="0"
+        allowfullscreen
+        style="border: none;">
+    </iframe>
+  </div>
+
+
+  <!-- Offers Section -->
+  <section class="offers-section">
+    <div class="offers-title">Top Offers For You</div>
+    <div class="product-grid">
+      
+      <div class="product-card">
+        <span class="discount-tag">40% OFF</span>
+        <img src="/img/watch.jpg" alt="Smart Watch" />
+        <div class="product-name">Smart Watch</div>
+        <div class="product-price">₹14,999</div>
+        <button class="btn">Deal</button>
+      </div>
+
+      <div class="product-card">
+        <span class="discount-tag">30% OFF</span>
+        <img src="/img/headphone.jpg" alt="Headphones" />
+        <div class="product-name">Wireless Headphones</div>
+        <div class="product-price">₹39,999</div>
+        <button class="btn">Deal</button>
+      </div>
+
+      <div class="product-card">
+        <span class="discount-tag">50% OFF</span>
+        <img src="/img/shoe.jpg" alt="Shoes" />
+        <div class="product-name">Sports Shoes</div>
+        <div class="product-price">₹7,999</div>
+        <button class="btn">Deal</button>
+      </div>
+
+      <div class="product-card">
+        <span class="discount-tag">60% OFF</span>
+        <img src="/img/jack.jpg" alt="Jacket" />
+        <div class="product-name">Winter Jacket</div>
+        <div class="product-price">₹1,299</div>
+        <button class="btn">Deal</button>
+      </div>
+
+    </div>
+
+  <!-- Slider -->
+  <div class="slider">
+    <img src="/img/phone.jpg" alt="Smartphone Offer" />
+    <img src="/img/fashion.webp" alt="Fashion Offer" />
+    <img src="/img/ele.jpg" alt="Electronics Offer" />
+    <img src="/img/appliance.jpg" alt="Appliance Offer" />
+    <img src="/img/phone.jpg" alt="Smartphone Offer" />
+  </div>
+  </section>
+
+  <script>
+    // Optional: auto-scroll slider
+    const slider = document.querySelector('.slider');
+    setInterval(() => {
+      slider.scrollBy({ left: 320, behavior: 'smooth' });
+      // If scrolled to end, reset to start
+      if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+        slider.scrollTo({ left: 0, behavior: 'smooth' });
+      }
+    }, 3000);
+  </script>
+
+</body>
+</html>

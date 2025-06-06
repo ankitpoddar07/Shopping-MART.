@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/597/597177.png">
+  <title>Contact | Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4a6bff;
+      --primary-light: rgba(19, 57, 229, 0.32);
+      --secondary: #f8f9fa;
+      --dark: #212529;
+      --light: #ffffff;
+      --gray: #6c757d;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    @supports (font-variation-settings: normal) {
+      * { font-family: 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
+    }
+
+    body {
+      background-color: var(--secondary);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--light);
+      box-shadow: var(--shadow);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .logo-dot {
+      color: var(--dark);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: -4px;
+      left: 0;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      position: relative;
+    }
+
+    .hero-bg {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--primary-light), transparent);
+      top: -300px;
+      right: -300px;
+      z-index: -1;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      width: 100%;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--dark);
+    }
+
+    .hero-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      margin-top: 16px;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 500px;
+      margin-bottom: 32px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      background: var(--light);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: var(--light);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(47, 67, 160, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--primary);
+      color: var(--light);
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      background: #3a5bef;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(54, 82, 207, 0.2);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .floating {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Success Message */
+    .success-message {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .success-icon {
+      font-size: 60px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .success-title {
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .success-text {
+      color: var(--gray);
+    }
+
+    /* Updated bubble styling with dark colors */
+    .bubbles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: rise 15s infinite ease-in;
+      filter: blur(1px);
+    }
+
+    .bubble:nth-child(1) {
+      width: 40px;
+      height: 40px;
+      left: 10%;
+      animation-duration: 8s;
+      background: rgba(18, 55, 222, 0.15);
+      box-shadow: 0 0 10px rgba(18, 55, 222, 0.2);
+    }
+
+    .bubble:nth-child(2) {
+      width: 20px;
+      height: 20px;
+      left: 20%;
+      animation-duration: 5s;
+      animation-delay: 1s;
+      background: rgba(15, 52, 217, 0.86);
+      box-shadow: 0 0 8px rgba(13, 42, 168, 0.15);
+    }
+
+    .bubble:nth-child(3) {
+      width: 50px;
+      height: 50px;
+      left: 35%;
+      animation-duration: 7s;
+      animation-delay: 2s;
+      background: rgb(174, 97, 10);
+      box-shadow: 0 0 12px rgba(8, 30, 120, 0.25);
+    }
+
+    .bubble:nth-child(4) {
+      width: 80px;
+      height: 80px;
+      left: 50%;
+      animation-duration: 11s;
+      animation-delay: 0s;
+      background: rgb(197, 12, 30);
+      box-shadow: 0 0 15px rgba(5, 20, 80, 0.3);
+    }
+
+    .bubble:nth-child(5) {
+      width: 35px;
+      height: 35px;
+      left: 55%;
+      animation-duration: 6s;
+      animation-delay: 1s;
+      background: rgba(11, 11, 11, 0.2);
+      box-shadow: 0 0 9px rgba(22, 65, 240, 0.2);
+    }
+
+    .bubble:nth-child(6) {
+      width: 45px;
+      height: 45px;
+      left: 65%;
+      animation-duration: 8s;
+      animation-delay: 3s;
+      background: rgb(196, 221, 12);
+      box-shadow: 0 0 11px rgba(10, 35, 140, 0.25);
+    }
+
+    .bubble:nth-child(7) {
+      width: 25px;
+      height: 25px;
+      left: 75%;
+      animation-duration: 7s;
+      animation-delay: 2s;
+      background: rgba(144, 200, 15, 0.83);
+      box-shadow: 0 0 7px rgba(15, 50, 200, 0.2);
+    }
+
+    .bubble:nth-child(8) {
+      width: 80px;
+      height: 80px;
+      left: 80%;
+      animation-duration: 6s;
+      animation-delay: 1s;
+      background: rgba(198, 13, 192, 0.94);
+      box-shadow: 0 0 18px rgba(3, 15, 60, 0.35);
+    }
+
+    .bubble:nth-child(9) {
+      width: 15px;
+      height: 15px;
+      left: 70%;
+      animation-duration: 9s;
+      animation-delay: 0s;
+      background: rgba(20, 167, 220, 1);
+      box-shadow: 0 0 5px rgba(20, 60, 220, 0.15);
+    }
+
+    .bubble:nth-child(10) {
+      width: 50px;
+      height: 50px;
+      left: 85%;
+      animation-duration: 5s;
+      animation-delay: 3s;
+      background: rgb(11, 215, 28);
+      box-shadow: 0 0 13px rgba(7, 25, 100, 0.3);
+    }
+
+    @keyframes rise {
+      0% {
+        bottom: -100px;
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(100px);
+      }
+      100% {
+        bottom: 1080px;
+        transform: translateX(-200px);
+      }
+    }
+
+    /* Improved Mobile Responsiveness */
+    @media (max-width: 992px) {
+      .hero-content {
+        gap: 40px;
+      }
+      
+      .hero-bg {
+        width: 500px;
+        height: 500px;
+        top: -250px;
+        right: -250px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 100px 0 60px;
+      }
+      
+      .hero-content {
+        flex-direction: column;
+      }
+      
+      .hero-text {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      
+      .hero-title::after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-bg {
+        width: 400px;
+        height: 400px;
+        top: -200px;
+        right: -200px;
+      }
+      
+      .contact-form {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      
+      /* Bubble adjustments */
+      .bubble:nth-child(4),
+      .bubble:nth-child(8) {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .bubble {
+        animation-duration: 12s !important;
+        filter: blur(0.5px);
+      }
+      
+      @keyframes rise {
+        0% {
+          bottom: -100px;
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(50px);
+        }
+        100% {
+          bottom: 1080px;
+          transform: translateX(-100px);
+        }
+      }
+    }
+
+    @media (max-width: 576px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .contact-form {
+        padding: 25px;
+      }
+      
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      
+      .hero-description {
+        font-size: 1rem;
+      }
+      
+      /* Bubble adjustments */
+      .bubbles {
+        opacity: 0.4;
+      }
+      
+      .bubble {
+        filter: blur(0.3px);
+      }
+      
+      .bubble:nth-child(4),
+      .bubble:nth-child(8) {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .contact-form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Bubble elements added before the header -->
+  <div class="bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">MART<span class="logo-dot">.</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="offer.html">Offers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text floating">
+            <h1 class="hero-title">Get in touch</h1>
+            <p class="hero-description">
+              Have questions or want to discuss a project? Fill out the form and we'll get back to you as soon as possible.
+            </p>
+          </div>
+          
+          <form id="contactForm" class="contact-form">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="">
+
+            <div class="form-group">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" id="firstName" name="firstName" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" id="lastName" name="lastName" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const formData = {
+        firstName: document.getElementById('firstName').value.trim(),
+        lastName: document.getElementById('lastName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        message: document.getElementById('message').value.trim()
+      };
+      
+      // Validation
+      if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+      
+      // Show loading state
+      const submitBtn = document.querySelector('.submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      
+      // Send form data
+      const form = e.target;
+      const formDataToSend = new FormData(form);
+      
+      fetch('https://formsubmit.co/ajax/radhe07sam@gmail.com', {
+        method: 'POST',
+        body: formDataToSend
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Show success message
+        form.innerHTML = `
+          <div class="success-message">
+            <div class="success-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="success-title">Thank you!</h3>
+            <p class="success-text">Your message has been sent successfully.</p>
+          </div>
+        `;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to send message. Please try again later.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      })
+      .finally(() => {
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          form.innerHTML = `
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="">
+
+            <div class="form-group">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" id="firstName" name="firstName" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" id="lastName" name="lastName" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit</button>
+          `;
+        }, 5000);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Cancelled!</title>
+  <link rel="icon" href="/public/img/cancel.png" type="image/png" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #fef2f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .sc-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .sc-container h1 {
+      color: #dc2626;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .sc-container p {
+      color: #555;
+      font-size: 1.1rem;
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    .sc-container img {
+      width: 120px;
+      margin: 20px 0;
+    }
+
+    .sc-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #dc2626;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .sc-btn:hover {
+      background-color: #b91c1c;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+        height: auto;
+      }
+
+      .sc-container {
+        padding: 25px 20px;
+      }
+
+      .sc-container h1 {
+        font-size: 1.8rem;
+      }
+
+      .sc-container p {
+        font-size: 1rem;
+      }
+
+      .sc-container img {
+        width: 90px;
+      }
+
+      .sc-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sc-container">
+    <h1>Something went wrong!</h1>
+    <p>We apologize for the inconvenience, but an error occurred while processing your order.</p>
+    <p>For support, email: <strong>ankitpoddarbeg@gmail.com</strong></p>
+    <img src="/img/cancel.png" alt="Cancel Payment" />
+    <br />
+    <a href="http://localhost:3000" class="sc-btn"><i class='bx bx-arrow-back'></i> Back to Home</a>
+  </div>
+</body>
+</html>
